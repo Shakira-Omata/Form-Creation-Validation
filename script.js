@@ -1,11 +1,14 @@
+// Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", () => {
+    // Select the form and feedback div
     const form = document.getElementById("registration-form");
     const feedbackDiv = document.getElementById("form-feedback");
 
+    // Add event listener for form submission
     form.addEventListener("submit", (event) => {
-        event.preventDefault();  // Prevent form submission
+        event.preventDefault(); // Prevent default form submission
 
-        // Retrieve and trim the values from input fields
+        // Retrieve and trim input values
         const username = document.getElementById("username").value.trim();
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
@@ -33,14 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Display feedback
-        feedbackDiv.style.display = "block";  // Show feedback div
+        feedbackDiv.style.display = "block";
         if (isValid) {
             feedbackDiv.textContent = "Registration successful!";
-            feedbackDiv.style.color = "#28a745";  // Green color for success
+            feedbackDiv.style.color = "#28a745";
         } else {
             feedbackDiv.innerHTML = messages.join("<br>");
-            feedbackDiv.style.color = "#dc3545";  // Red color for errors
+            feedbackDiv.style.color = "#dc3545";
         }
     });
 });
-
